@@ -49,13 +49,13 @@ const DocumentationGenerator = () => {
       {/* Header */}
       <div className="text-center py-16 px-4">
         <h1 className="text-5xl font-bold mb-6">
-          Find bugs in your code{' '}
+          Generate documentation{' '}
           <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             instantly
           </span>
         </h1>
         <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-          Paste your code manually or upload your GitHub repository for automatic bug detection
+          Paste your JavaScript, React, or any code below and get instant documentation generation with AI-powered analysis
         </p>
       </div>
 
