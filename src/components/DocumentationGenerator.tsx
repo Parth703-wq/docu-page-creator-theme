@@ -89,12 +89,12 @@ const DocumentationGenerator = () => {
       {/* Content Area */}
       <div className="max-w-6xl mx-auto px-4 pb-16">
         {activeTab === 'manual' ? (
-          // Manual Input Section - Updated Design
+          // Manual Input Section - Only code textarea, no file upload
           <div className="bg-slate-800/50 rounded-xl p-8 border border-slate-700">
             <div className="flex justify-between items-center mb-8">
               <h2 className="text-2xl font-semibold text-white">Code Input</h2>
               <button className="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:from-purple-600 hover:to-purple-700 transition-all text-lg">
-                Analyze Code
+                Generate Documentation
               </button>
             </div>
             
@@ -118,7 +118,7 @@ const DocumentationGenerator = () => {
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-xl font-semibold text-white">GitHub Repository Analysis</h2>
               <button className="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:from-purple-600 hover:to-purple-700 transition-all">
-                Analyze Repository
+                Generate Documentation
               </button>
             </div>
             
