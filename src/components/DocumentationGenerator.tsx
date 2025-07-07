@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Upload, Github } from 'lucide-react';
 
 const DocumentationGenerator = () => {
-  const [activeTab, setActiveTab] = useState<'manual' | 'github'>('github');
+  const [activeTab, setActiveTab] = useState<'manual' | 'github'>('manual');
   const [codeInput, setCodeInput] = useState('');
   const [githubUrl, setGithubUrl] = useState('');
   const [dragActive, setDragActive] = useState(false);
@@ -87,8 +87,32 @@ const DocumentationGenerator = () => {
       </div>
 
       {/* Content Area */}
-      <div className="max-w-4xl mx-auto px-4 pb-16">
-        {activeTab === 'github' ? (
+      <div className="max-w-6xl mx-auto px-4 pb-16">
+        {activeTab === 'manual' ? (
+          // Manual Input Section - Updated Design
+          <div className="bg-slate-800/50 rounded-xl p-8 border border-slate-700">
+            <div className="flex justify-between items-center mb-8">
+              <h2 className="text-2xl font-semibold text-white">Code Input</h2>
+              <button className="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:from-purple-600 hover:to-purple-700 transition-all text-lg">
+                Analyze Code
+              </button>
+            </div>
+            
+            <div className="mb-6">
+              <textarea
+                value={codeInput}
+                onChange={(e) => setCodeInput(e.target.value)}
+                placeholder="Paste your code here..."
+                className="w-full h-96 bg-slate-900 border-2 border-purple-500/50 rounded-xl p-6 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all font-mono text-sm resize-none"
+              />
+            </div>
+            
+            <div className="flex justify-between text-sm text-gray-400">
+              <span>Lines: {getLineCount()}</span>
+              <span>Characters: {getCharacterCount()}</span>
+            </div>
+          </div>
+        ) : (
           // GitHub Repository Section
           <div className="bg-slate-800 rounded-xl p-8 border border-slate-700">
             <div className="flex justify-between items-center mb-6">
@@ -145,30 +169,6 @@ const DocumentationGenerator = () => {
                   className="absolute inset-0 cursor-pointer"
                 />
               </div>
-            </div>
-          </div>
-        ) : (
-          // Manual Input Section
-          <div className="bg-slate-800 rounded-xl p-8 border border-slate-700">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-semibold text-white">Code Input</h2>
-              <button className="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:from-purple-600 hover:to-purple-700 transition-all">
-                Analyze Code
-              </button>
-            </div>
-            
-            <div className="mb-4">
-              <textarea
-                value={codeInput}
-                onChange={(e) => setCodeInput(e.target.value)}
-                placeholder="Paste your code here..."
-                className="w-full h-80 bg-slate-700 border border-slate-600 rounded-lg p-4 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all font-mono text-sm resize-none"
-              />
-            </div>
-            
-            <div className="flex justify-between text-sm text-gray-400">
-              <span>Lines: {getLineCount()}</span>
-              <span>Characters: {getCharacterCount()}</span>
             </div>
           </div>
         )}
